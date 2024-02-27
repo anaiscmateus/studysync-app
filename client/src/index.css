@@ -1,0 +1,9 @@
+/* index.css */
+@import url('./css/switzer.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: "Switzer-Regular";
+}
