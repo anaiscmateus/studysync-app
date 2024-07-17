@@ -32,10 +32,16 @@ export const loginUser = async (formData) => {
     body: JSON.stringify(formData),
     credentials: "include",
   });
+
+  const data = await response.json();
+
   if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
+    const error = new Error('Login failed');
+    error.response = data;
+    throw error;
   }
-  return response.ok;
+
+  return data;
 };
 
 export const signupUser = async (formData) => {
@@ -45,10 +51,16 @@ export const signupUser = async (formData) => {
     body: JSON.stringify(formData),
     credentials: "include",
   });
+
+  const data = await response.json();
+
   if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
+    const error = new Error('Signup failed');
+    error.response = data;
+    throw error;
   }
-  return response.ok;
+
+  return data;
 };
 
 export const fetchNotes = async () => {

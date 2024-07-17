@@ -14,7 +14,7 @@ import Search from "../../components/dashboard/Search/Search";
 import NavComponent from "../../components/default/NavComponent";
 import SubmitModal from "../../components/dashboard/SubmitModal/SubmitModal";
 import Feed from "../../components/dashboard/Feed/Feed";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { Spinner } from "@nextui-org/react";
 
 export default function Dashboard() {
@@ -37,6 +37,7 @@ export default function Dashboard() {
         setNotes(sortedNotes);
       } catch (error) {
         console.error(error.message);
+        toast.error("Error loading data. Please try again.", { position: "bottom-right" });
       }
       setIsLoading(false); // End loading
     };
@@ -70,9 +71,10 @@ export default function Dashboard() {
     try {
       await logoutUser();
       navigate("/");
+      toast.success("Logout successful", { position: "bottom-right" });
     } catch (error) {
       console.error(error.message);
-      // Handle logout error
+      toast.error("Logout failed. Please try again.", { position: "bottom-right" });
     }
   };
 
@@ -189,7 +191,6 @@ export default function Dashboard() {
               </section>
             </div>
           </section>
-          <ToastContainer />
         </>
       )}
     </>

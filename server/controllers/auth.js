@@ -1,4 +1,3 @@
-// auth.js
 import passport from "passport";
 import validator from "validator";
 import { User } from "../models/User.js";
@@ -21,7 +20,7 @@ export const getLogin = (req, res) => {
 export const postLogin = (req, res, next) => {
   const validationErrors = [];
   if (validator.isEmpty(req.body.username)) {
-    validationErrors.push({ msg: "username cannot be blank." });
+    validationErrors.push({ msg: "Username cannot be blank." });
   }
   if (validator.isEmpty(req.body.password)) {
     validationErrors.push({ msg: "Password cannot be blank." });
@@ -79,7 +78,7 @@ export const getSignup = (req, res) => {
 export const postSignup = async (req, res, next) => {
   const validationErrors = [];
   if (validator.isEmpty(req.body.username)) {
-    validationErrors.push({ msg: "username cannot be blank." });
+    validationErrors.push({ msg: "Username cannot be blank." });
   }
   if (validator.isEmpty(req.body.password)) {
     validationErrors.push({ msg: "Password cannot be blank." });
@@ -95,7 +94,7 @@ export const postSignup = async (req, res, next) => {
   try {
     const existingUser = await User.findOne({ username: req.body.username });
     if (existingUser) {
-      return res.status(409).json({ error: "That username is already taken." });
+      return res.status(409).json({ errors: [{ msg: "That username is already taken." }] });
     }
 
     const newUser = new User({
@@ -112,7 +111,7 @@ export const postSignup = async (req, res, next) => {
     });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ errors: [{ msg: "Internal Server Error" }] });
   }
 };
 
