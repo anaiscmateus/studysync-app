@@ -1,8 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import SignUpForm from '../../components/auth/SignUpForm/SignUpForm';
+import SignUpForm from "./components/SignUpForm"
 import { signupUser } from '../../utils/api';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 export default function SignUp() {
   const navigate = useNavigate();

@@ -28,8 +28,8 @@ const app = express();
 // Determine the directory name
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// Serve static files from the 'v3' directory for production
-app.use(express.static(path.join(__dirname, 'v3')));
+// Serve static files from the 'v4' directory for production
+app.use(express.static(path.join(__dirname, 'v4')));
 
 // Middleware for parsing request bodies
 app.use(express.urlencoded({ extended: true }));
@@ -71,7 +71,7 @@ app.use('/api/auth', authRoutes);
 
 // Serve React app
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'v3', 'index.html'));
+  res.sendFile(path.join(__dirname, 'v4', 'index.html'));
 });
 
 // Start the server

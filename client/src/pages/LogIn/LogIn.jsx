@@ -1,6 +1,6 @@
 // LogIn.jsx
 import { useNavigate } from "react-router-dom";
-import LogInForm from "../../components/auth/LogInForm/LogInForm";
+import LogInForm from "./components/LogInForm"
 import { loginUser } from "../../utils/api";
 import { toast } from 'react-toastify';
 

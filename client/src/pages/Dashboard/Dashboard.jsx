@@ -10,10 +10,10 @@ import {
   updateNote,
   toggleImportance,
 } from "../../utils/api";
-import Search from "../../components/dashboard/Search/Search";
+import Search from "./components/Search";
 import NavComponent from "../../components/default/NavComponent";
-import SubmitModal from "../../components/dashboard/SubmitModal/SubmitModal";
-import Feed from "../../components/dashboard/Feed/Feed";
+import SubmitModal from "./components/SubmitModal";
+import Feed from "./components/Feed";
 import { toast } from "react-toastify";
 import { Spinner } from "@nextui-org/react";
 

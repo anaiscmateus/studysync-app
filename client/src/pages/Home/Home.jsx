@@ -1,6 +1,6 @@
 // Home.jsx
-import BackgroundVideo from "../../components/home/BackgroundVideo/BackgroundVideo";
-import Hero from "../../components/home/Hero/Hero";
+import BackgroundVideo from "./components/BackgroundVideo/BackgroundVideo";
+import Hero from "./components/Hero/Hero";
 import "./Home.css";
 
 export default function Home() {
